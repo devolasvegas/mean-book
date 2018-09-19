@@ -50,3 +50,13 @@ exports.update = function(req, res, next) {
         }
     });
 };
+
+exports.delete = function(req, res, next) {
+    req.user.remove(err => {
+        if(err) {
+            return next(err);
+        } else {
+            res.status(200).json(req.user);
+        }
+    });
+};
