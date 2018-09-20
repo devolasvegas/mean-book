@@ -65,7 +65,21 @@ UserSchema.statics.findOneByUsername = function(username, callback) {
 // Custom Instance Methods
 UserSchema.methods.authenticate = function(password) {
     return this.password === password;
-}
+};
+
+// Pre Middleware
+UserScheme.pre('save', function(next) {
+    // if() {
+    //     next()
+    // } else {
+    //     next(new Error('An Error Occured.'));
+    // }
+});
+
+// Post Middleware
+UserSchema.post('save', function(next) {
+    console.log('The user "' + this.username + '" details were saved.');
+});
 
 UserSchema.set('toJSON', {
     getters: true,
