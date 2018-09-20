@@ -18,10 +18,14 @@ const UserSchema = new Schema({
     },
     firstName: String,
     lastName: String,
-    email: String,
+    email: {
+        type: String,
+        index: true
+    },
     username: {
         type: String,
-        trim: true
+        trim: true,
+        unique: true
     },
     password: String,
     created: {
@@ -30,6 +34,7 @@ const UserSchema = new Schema({
     }
 });
 
+// Virtual Attributes
 UserSchema.virtual('fullName').get(function() {
     return this.firstName + ' ' + this.lastName;
 }).set(function(fullName) {
@@ -37,6 +42,16 @@ UserSchema.virtual('fullName').get(function() {
     this.firstName = splitName[0] || '';
     this.lastName = splitName[1] || '';
 });
+
+// Custom Static Methods
+UserSchema.statics.findOneByUsername = function(username, callback) {
+    this.findOne({ username: new RegExp(username, 'i') }, callback);
+};
+
+// Custom Instance Methods
+UserSchema.methods.authenticate = function(password) {
+    return this.password === password;
+}
 
 UserSchema.set('toJSON', {
     getters: true,
