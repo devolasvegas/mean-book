@@ -33,7 +33,15 @@ const UserSchema = new Schema({
         type: String,
         enum: ['Admin', 'Owner', 'User']
     },
-    password: String,
+    password: {
+        type: String,
+        validate: [
+            function(password) {
+                return password.length >=6;
+            },
+            'Password should be longer'
+        ]
+    },
     created: {
         type: Date,
         default: Date.now
