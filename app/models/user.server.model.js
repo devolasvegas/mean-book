@@ -37,11 +37,20 @@ const UserSchema = new Schema({
         type: String,
         validate: [
             function(password) {
-                return password.length >=6;
+                return password && password.length > 6;
             },
             'Password should be longer'
         ]
     },
+    salt: {
+        type: String
+    },
+    provider: {
+        type: String,
+        required: 'Provider is required'
+    },
+    providerId: String,
+    providerData: {},
     created: {
         type: Date,
         default: Date.now
@@ -62,18 +71,43 @@ UserSchema.statics.findOneByUsername = function(username, callback) {
     this.findOne({ username: new RegExp(username, 'i') }, callback);
 };
 
+UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
+    var possibleUsername = username + (suffix || '');
+    this.findOne({
+        username: possibleUsername
+    }, (err, user) => {
+        if(!err) {
+            if(!user) {
+                callback(possibleUsername);
+            } else {
+                return this.findUniqueUsername(username, (suffix || 0) + 1, callback);
+            }
+        } else {
+            callback(null);
+        }
+    });
+};
+
 // Custom Instance Methods
 UserSchema.methods.authenticate = function(password) {
     return this.password === password;
 };
 
+UserSchema.methods.hashPassword = function(password) {
+    return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
+};
+
+UserSchema.methods.authenticate = function(password) {
+    return this.password === this.hashPassword(password);
+}
+
 // Pre Middleware
-UserScheme.pre('save', function(next) {
-    // if() {
-    //     next()
-    // } else {
-    //     next(new Error('An Error Occured.'));
-    // }
+UserSchema.pre('save', function(next) {
+    if(this.password) {
+        this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
+        this.password = this.hashPassword(this.password);
+    }
+    next();
 });
 
 // Post Middleware
