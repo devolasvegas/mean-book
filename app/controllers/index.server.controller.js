@@ -8,6 +8,7 @@ exports.render = function(req, res) {
     
     res.render('index', {
         title: 'Hello Worldzzz!',
-        heading: 'Well, ain\'t this some shit?'
+        heading: 'Well, ain\'t this some shit?',
+        userFullName: req.user ? req.user.fullName : ''
     })
 };
