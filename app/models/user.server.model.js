@@ -90,10 +90,6 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 };
 
 // Custom Instance Methods
-UserSchema.methods.authenticate = function(password) {
-    return this.password === password;
-};
-
 UserSchema.methods.hashPassword = function(password) {
     return crypto.pbkdf2Sync(password, this.salt, 10000, 64, 'sha1').toString('base64');
 };
