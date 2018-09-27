@@ -67,6 +67,32 @@ exports.signup = function(req, res, next) {
     }
 };
 
+// OAuth Configuration
+exports.saveOAuthUserProfile = function(req, profile, done) {
+    User.findOne({
+        provider: profile.provider,
+        providerId: profile.providerId
+    }, (err, user) => {
+        if(err) {
+            return done(err);
+        } else {
+            if(!user) {
+                const possibleUsername = profile.username || ((profile.email) ? profile.email.split('@')[0]: '');
+
+                User.findUniqueUsername(possibleUsername, null, (availableUsername) => {
+                    const newUser = new User(profile);
+                    newUser.username = availableUsername;
+                    newUser.save((err) => {
+                        return done(err, newUser);
+                    });
+                });
+            } else {
+                return done(err, user);
+            }
+        }
+    });
+}
+
 exports.signout = function(req, res) {
     req.logout();
     res.redirect('/');
