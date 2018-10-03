@@ -1,6 +1,13 @@
 {
     "name": "mean",
     "version": "0.0.3",
+    "scripts": {
+        "tsc": "tsc",
+        "tsc:w": "tsc -w",
+        "app": "node server",
+        "start": "concurrently \"npm run tsc:w\" \"npm run app\"",
+        "postinstall": "typings install"
+    },
     "dependencies": {
         "body-parser": "^1.18.3",
         "compression": "^1.7.3",
