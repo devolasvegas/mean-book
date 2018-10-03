@@ -1,3 +1,4 @@
+const path = require('path');
 const config = require('./config');
 const express = require('express');
 const morgan = require('morgan');
@@ -37,11 +38,12 @@ module.exports = function() {
     app.use(passport.initialize());
     app.use(passport.session());
 
-    // Routes
-    require('../app/routes/index.server.routes') (app);
-    require('../app/routes/users.server.routes') (app);
+    app.use('/', express.static(path.resolve('./public')));
+    app.use('/lib', express.static(path.resolve('./node_modules')));
 
-    app.use(express.static('./public'));
+    // Routes
+    require('../app/routes/users.server.routes') (app);
+    require('../app/routes/index.server.routes') (app);
 
     return app;
 }
