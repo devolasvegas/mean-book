@@ -65,26 +65,28 @@ exports.signin = function(req, res, next) {
 }
 
 exports.signup = function(req, res, next) {
-    if(!req.user) {
-        const user = new User(req.body);
-        const message = null;
-        user.provider = 'local';
+   const user = new User(req.body);
+   user.provider = 'local';
 
-        user.save((err) => {
-            if(err) {
-                const message = getErrorMessage(err);
-
-                req.flash('error', message);
-                return res.redirect('/signup');
-            }
-            req.login(user, (err) => {
-                if(err) return next(err);
-                return res.redirect('/');
+   user.save((err) => {
+        if(err) {
+            return res.status(400).send({
+                message: getErrorMessage(err)
             });
-        });
-    } else {
-        return res.redirect('/');
-    }
+        } else {
+            // Remove sensitive data before login
+            user.password = undefined;
+            user.salt = undefined;
+
+            req.login(user, function(err) {
+                if(err) {
+                    res.status(400).send(err);
+                } else {
+                    res.json(user);
+                }
+            });
+        }
+   });
 };
 
 // OAuth Configuration
