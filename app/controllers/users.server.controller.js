@@ -105,7 +105,14 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
                     const newUser = new User(profile);
                     newUser.username = availableUsername;
                     newUser.save((err) => {
-                        return done(err, newUser);
+                        if(err) {
+                            const message = _this.getErrorMessage(err);
+
+                            req.flash('error', message);
+                            return res.redirect('/signup');
+                        }
+
+                        return done(err, user);
                     });
                 });
             } else {
