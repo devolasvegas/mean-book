@@ -3,17 +3,10 @@ const passport = require('passport');
 
 module.exports = function(app) {
 
-    app.route('/signup')
-        .get(users.renderSignup)
-        .post(users.signup);
+    app.route('/api/auth/signup').post(users.signup);
+    app.route('/api/auth/signin').post(users.signin);
+    app.route('api/auth/signout').post(users.signout);
 
-    app.route('/signin')
-        .get(users.renderSignin)
-        .post(passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/signin',
-            failureFlash: true
-        }));
 
     // Facebook OAuth Strategy Routes
     app.get('/oauth/facebook', passport.authenticate('facebook', {
@@ -50,5 +43,4 @@ module.exports = function(app) {
         successRedirect: '/'
     }));
 
-    app.get('/signout', users.signout);
 };
