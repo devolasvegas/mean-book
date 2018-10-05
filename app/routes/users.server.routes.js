@@ -9,28 +9,27 @@ module.exports = function(app) {
 
 
     // Facebook OAuth Strategy Routes
-    app.get('/oauth/facebook', passport.authenticate('facebook', {
+    app.get('/api/oauth/facebook', passport.authenticate('facebook', {
         failureRedirect: '/signin',
-        successRedirect: '/'
     }));
 
-    app.get('/oauth/facebook/callback', passport.authenticate('facebook', {
+    app.get('/api/oauth/facebook/callback', passport.authenticate('facebook', {
         failureRedirect: '/signin',
         successRedirect: '/'
     }));
 
     // Twitter OAuth Strategy Routes
-    app.get('/oauth/twitter', passport.authenticate('twitter', {
+    app.get('/api/oauth/twitter', passport.authenticate('twitter', {
         failureRedirect: '/signin'
     }));
 
-    app.get('/oauth/twitter/callback', passport.authenticate('twitter', {
+    app.get('/api/oauth/twitter/callback', passport.authenticate('twitter', {
         failureRedirect: '/signin',
         successRedirect: '/'
     }));
 
     // Google OAuth Strategy Routes
-    app.get('/oauth/google', passport.authenticate('google', {
+    app.get('/api/oauth/google', passport.authenticate('google', {
         failureRedirect: '/signin',
         scope: [
             'https://www.googleapis.com/auth/userinfo.profile',
@@ -38,7 +37,7 @@ module.exports = function(app) {
         ]
     }));
 
-    app.get('/oauth/google/callback', passport.authenticate('google', {
+    app.get('/api/oauth/google/callback', passport.authenticate('google', {
         failureRedirect: '/signin',
         successRedirect: '/'
     }));
