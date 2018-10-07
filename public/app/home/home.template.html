@@ -1,0 +1,8 @@
+<div *ngIf="user">
+    <h1>Hello {{user.firstName}}</h1>
+    <a href="/api/auth/signout">Signout</a>
+</div>
+<div *ngIf="!user">
+    <a [routerLink]="['/authentication/signup']">Sign Up</a>
+    <a [routerLink]="['/authentication/signin']">Sign In</a>
+</div>
