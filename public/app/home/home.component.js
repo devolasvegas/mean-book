@@ -29,7 +29,7 @@ System.register(["@angular/core", "../authentication/authentication.service"], f
                 HomeComponent = __decorate([
                     core_1.Component({
                         selector: 'home',
-                        templateUrl: './app/home.home.template.html'
+                        templateUrl: './app/home/home.template.html'
                     }),
                     __metadata("design:paramtypes", [authentication_service_1.AuthenticationService])
                 ], HomeComponent);

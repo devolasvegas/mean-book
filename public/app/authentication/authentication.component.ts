@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SigninComponent } from './sign/signin.component';
+import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 
 @Component({
