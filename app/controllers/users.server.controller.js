@@ -122,6 +122,15 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
     });
 }
 
+//Check if a user is authenticated at all
+exports.requiresLogin = function(req, res, next) {
+    if(!req.isAuthenticated()) {
+        return res.status(401).send({ message: "Your ass isn't authenticated, motherfucker!" });
+    }
+
+    next();
+}
+
 exports.signout = function(req, res) {
     req.logout();
     res.redirect('/');
