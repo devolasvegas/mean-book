@@ -84,3 +84,12 @@ exports.delete = function(req, res) {
         }
     });
 };
+
+// Check to see if a user is authorized to perform an operation
+exports.hasAuthorization = function(req, res, next) {
+    if(req.article.creator.id !== req.user.id) {
+        return res.status(403).send({ message: 'Your ass isn\'t authorized, motherfucker!' });
+    }
+
+    next();
+}
