@@ -8,6 +8,9 @@ module.exports = function() {
 
     // User model
     require('../app/models/user.server.model');
+    
+    // Article model
+    require('../app/models/article.server.model');
 
     return db;
 }
