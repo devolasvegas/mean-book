@@ -50,3 +50,8 @@ exports.articleByID = function(req, res, next, id) {
         next();
     });
 };
+
+// Output retrieved article
+exports.read = function(req, res) {
+    res.status(200).json(req.article);
+}
