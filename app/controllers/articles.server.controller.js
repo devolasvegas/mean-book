@@ -55,3 +55,19 @@ exports.articleByID = function(req, res, next, id) {
 exports.read = function(req, res) {
     res.status(200).json(req.article);
 }
+
+// Update an article
+exports.update = function(req, res) {
+    const article = req.article;
+
+    article.title = req.body.title;
+    article.content = req.body.content;
+
+    article.save((err) => {
+        if(err) {
+            return res.status(400).send({ message: getErrorMessage(err) });
+        } else {
+            res.status(200).json(article);
+        }
+    });
+};
