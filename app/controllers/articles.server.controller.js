@@ -39,3 +39,14 @@ exports.list = function(req, res) {
         }
     });
 };
+
+// Get article by ID
+exports.articleByID = function(req, res, next, id) {
+    Article.findById(id).populate('creator', 'firstName lastName fullName').exec((err, article) => {
+        if(err) return next(err);
+        if(!article) return next(new Error('Failed to load article ' + id));
+
+        req.article = article;
+        next();
+    });
+};
