@@ -30,3 +30,12 @@ exports.create = function(req, res) {
 };
 
 // Retrieve all articles
+exports.list = function(req, res) {
+    Article.find().sort('-created').populate('creator', 'firstName lastName fullName').exec((err, articles) => {
+        if(err) {
+            return res.status(400).send({ message: getErrorMessage(err) });
+        } else {
+            res.status(200).json(articles);
+        }
+    });
+};
