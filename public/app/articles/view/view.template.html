@@ -1,0 +1,11 @@
+<section *ngIf="article && article.creator">
+    <h1>{{article.title}}</h1>
+    <div *ngIf="allowEdit">
+        <a [routerLink]="['/articles', article._id, 'edit']">Edit</a>
+        <button (click)="delete()">Delete</button>
+    </div>
+    <small>
+        <em>Posted on {{article.created}} by {{article.creator.fullName}}</em>
+    </small>
+    <p>{{article.content}}</p>
+</section>
