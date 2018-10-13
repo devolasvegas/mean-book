@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { ArticlesSErvice, ArticlesService } from '../articles.service';
+import { ArticlesService } from '../articles.service';
 
 @Component({
     selector: 'edit',
