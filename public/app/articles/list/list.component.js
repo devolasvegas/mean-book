@@ -32,7 +32,7 @@ System.register(["@angular/core", "../articles.service"], function (exports_1, c
                 ListComponent = __decorate([
                     core_1.Component({
                         selector: 'list',
-                        templateUrl: 'app/articles/list/list.templat.html'
+                        templateUrl: 'app/articles/list/list.template.html'
                     }),
                     __metadata("design:paramtypes", [articles_service_1.ArticlesService])
                 ], ListComponent);

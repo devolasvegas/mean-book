@@ -3,7 +3,7 @@ import { ArticlesService } from '../articles.service';
 
 @Component({
     selector: 'list',
-    templateUrl: 'app/articles/list/list.templat.html'
+    templateUrl: 'app/articles/list/list.template.html'
 })
 export class ListComponent{
     articles: any;

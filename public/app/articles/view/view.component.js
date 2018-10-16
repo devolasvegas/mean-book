@@ -38,7 +38,7 @@ System.register(["@angular/core", "@angular/router", "../../authentication/authe
                 ViewComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this.user = this._authenticationService.user;
-                    this.paramsObserver = this._route.params.subscribe(function (params) {
+                    this.routingObserver = this._route.params.subscribe(function (params) {
                         var articleId = params['articleId'];
                         _this._articlesService
                             .read(articleId)
@@ -49,7 +49,7 @@ System.register(["@angular/core", "@angular/router", "../../authentication/authe
                     });
                 };
                 ViewComponent.prototype.ngOnDestroy = function () {
-                    this.paramsObserver.unsubscribe();
+                    this.routingObserver.unsubscribe();
                 };
                 ViewComponent.prototype.delete = function () {
                     var _this = this;

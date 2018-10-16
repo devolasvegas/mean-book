@@ -10,7 +10,7 @@ import { ArticlesService } from '../articles.service';
 export class ViewComponent {
     user: any;
     article: any;
-    paramsObserver: any;
+    routingObserver: any;
     errorMessage: string;
     allowEdit: boolean = false;
 
@@ -21,7 +21,7 @@ export class ViewComponent {
 
     ngOnInit() {
         this.user = this._authenticationService.user;
-        this.paramsObserver = this._route.params.subscribe(params => {
+        this.routingObserver = this._route.params.subscribe(params => {
             let articleId = params['articleId'];
 
             this._articlesService
@@ -37,7 +37,7 @@ export class ViewComponent {
     }
 
     ngOnDestroy() {
-        this.paramsObserver.unsubscribe();
+        this.routingObserver.unsubscribe();
     }
 
     delete() {
