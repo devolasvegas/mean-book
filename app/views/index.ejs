@@ -3,11 +3,16 @@
     <head>
         <title><%= title %></title>
         <base href="/" />
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-        <mean-app>
-            <h1>Loading &hellip;</h1>
-        </mean-app>
+
+        <article class="container">
+            <mean-app>
+                <h1>Loading &hellip;</h1>
+            </mean-app>
+        </article>
 
         <script type="text/javascript">
             window.user = <%- user || 'null' %>;
