@@ -1,9 +1,9 @@
 <div *ngIf="user">
-    <h1>Hello {{user.firstName}}</h1>
-    <a href="/api/auth/signout">Signout</a>
+    <h1>Hello, {{user.firstName}}</h1>
+    <a href="/api/auth/signout" class="btn btn-danger">Signout</a>
     <ul>
-        <li><a [routerLink]="['/articles']">List Articles</a></li>
-        <li><a [routerLink]="['/articles/create']">Create Articles</a></li>
+        <li><a [routerLink]="['/articles']" class="btn btn-primary">List Articles</a></li>
+        <li><a [routerLink]="['/articles/create']" class="btn btn-primary">Create Articles</a></li>
     </ul>
 </div>
 <div *ngIf="!user">
