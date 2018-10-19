@@ -11,6 +11,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const passport = require('passport');
+const configureSocket = require('./socketio');
 
 module.exports = function(db) {
     const app = express();
@@ -61,6 +62,8 @@ module.exports = function(db) {
     require('../app/routes/users.server.routes') (app);
     require('../app/routes/articles.server.routes') (app);
     require('../app/routes/index.server.routes') (app);
+
+    configureSocket(server, io, mongoStore);
 
     return server;
 }
