@@ -5,7 +5,7 @@ const configureExpress = require('./config/express');
 const configurePassport = require('./config/passport');
 
 const db = configureMongoose();
-const app = configureExpress();
+const app = configureExpress(db);
 const passport  = configurePassport();
 app.listen(3000);
 module.exports = app;
