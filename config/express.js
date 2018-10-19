@@ -8,6 +8,7 @@ const compress = require('compression');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const passport = require('passport');
 
@@ -27,11 +28,22 @@ module.exports = function() {
     }));
     app.use(bodyParser.json());
     app.use(methodOverride());
+    // app.use(session({
+    //     saveUninitialized: true,
+    //     resave: true,
+    //     secret: config.sessionSecret
+    // }))
+
+    const mongoStore = new MongoStore({
+        mongooseConnection: db.connection
+    });
+
     app.use(session({
         saveUninitialized: true,
         resave: true,
-        secret: config.sessionSecret
-    }))
+        secret: config.sessionSecret,
+        store: mongoStore
+    }));
 
     // EJS templating engine
     app.set('views', './app/views');
