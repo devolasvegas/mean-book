@@ -12,7 +12,7 @@ const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const passport = require('passport');
 
-module.exports = function() {
+module.exports = function(db) {
     const app = express();
     const server = http.createServer(app);
     const io = socketio.listen(server);
