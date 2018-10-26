@@ -36,7 +36,7 @@ module.exports = function(db) {
     // }))
 
     const mongoStore = new MongoStore({
-        mongooseConnection: db
+        mongooseConnection: db.connection
     });
 
     app.use(session({

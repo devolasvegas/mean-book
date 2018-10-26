@@ -2,8 +2,14 @@ const config = require('./config');
 const mongoose = require('mongoose');
 
 module.exports = function() {
-    const db = mongoose.createConnection(config.db, {
+    const db = mongoose.connect(config.db, {
         useNewUrlParser: true
+    }, function(error) {
+        if(error) {
+            console.error(error);
+        } else {
+            console.log('MongoDB Connected')
+        }
     });
 
     // User model
