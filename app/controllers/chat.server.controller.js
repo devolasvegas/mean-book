@@ -15,7 +15,7 @@ module.exports = function(io, socket) {
     });
 
     socket.on('disconnect', () => {
-        io.emit('chatmessage', {
+        io.emit('chatMessage', {
             type: 'status',
             text: 'disconnected',
             created: Date.now(),
