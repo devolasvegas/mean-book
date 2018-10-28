@@ -22,27 +22,27 @@ function getErrorMessage(err) {
     return message;
 };
 
-exports.renderSignin = function(req, res, next) {
-    if(!req.user) {
-        res.render('signin', {
-            title: 'Sign-in Form',
-            messages: req.flash('error') || req.flash('info')
-        });
-    } else {
-        return res.redirect('/');
-    }
-};
+// exports.renderSignin = function(req, res, next) {
+//     if(!req.user) {
+//         res.render('signin', {
+//             title: 'Sign-in Form',
+//             messages: req.flash('error') || req.flash('info')
+//         });
+//     } else {
+//         return res.redirect('/');
+//     }
+// };
 
-exports.renderSignup = function(req, res, next) {
-    if(!req.user) {
-        res.render('signup', {
-            title: 'Sign-up form',
-            messages: req.flash('error')
-        });
-    } else {
-        return res.redirect('/');
-    }
-};
+// exports.renderSignup = function(req, res, next) {
+//     if(!req.user) {
+//         res.render('signup', {
+//             title: 'Sign-up form',
+//             messages: req.flash('error')
+//         });
+//     } else {
+//         return res.redirect('/');
+//     }
+// };
 
 exports.signin = function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
