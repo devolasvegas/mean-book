@@ -1,9 +1,10 @@
-System.register(["./articles.component", "./create/create.component", "./list/list.component", "./view/view.component", "./edit/edit.component"], function (exports_1, context_1) {
+System.register(['./articles.component', './create/create.component', './list/list.component', './view/view.component', './edit/edit.component'], function(exports_1, context_1) {
     "use strict";
-    var articles_component_1, create_component_1, list_component_1, view_component_1, edit_component_1, ArticlesRoutes;
     var __moduleName = context_1 && context_1.id;
+    var articles_component_1, create_component_1, list_component_1, view_component_1, edit_component_1;
+    var ArticlesRoutes;
     return {
-        setters: [
+        setters:[
             function (articles_component_1_1) {
                 articles_component_1 = articles_component_1_1;
             },
@@ -18,9 +19,8 @@ System.register(["./articles.component", "./create/create.component", "./list/li
             },
             function (edit_component_1_1) {
                 edit_component_1 = edit_component_1_1;
-            }
-        ],
-        execute: function () {
+            }],
+        execute: function() {
             exports_1("ArticlesRoutes", ArticlesRoutes = [{
                     path: 'articles',
                     component: articles_component_1.ArticlesComponent,
@@ -32,6 +32,6 @@ System.register(["./articles.component", "./create/create.component", "./list/li
                     ]
                 }]);
         }
-    };
+    }
 });
 //# sourceMappingURL=articles.routes.js.map

@@ -1,5 +1,6 @@
-System.register(["@angular/core", "@angular/router", "../authentication.service"], function (exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../authentication.service'], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,10 +10,10 @@ System.register(["@angular/core", "@angular/router", "../authentication.service"
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, authentication_service_1, SigninComponent;
-    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, authentication_service_1;
+    var SigninComponent;
     return {
-        setters: [
+        setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -21,10 +22,9 @@ System.register(["@angular/core", "@angular/router", "../authentication.service"
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
-            }
-        ],
-        execute: function () {
-            SigninComponent = /** @class */ (function () {
+            }],
+        execute: function() {
+            SigninComponent = (function () {
                 function SigninComponent(_authenticationService, _router) {
                     this._authenticationService = _authenticationService;
                     this._router = _router;
@@ -42,13 +42,13 @@ System.register(["@angular/core", "@angular/router", "../authentication.service"
                     core_1.Component({
                         selector: 'signin',
                         templateUrl: 'app/authentication/signin/signin.template.html'
-                    }),
-                    __metadata("design:paramtypes", [authentication_service_1.AuthenticationService, router_1.Router])
+                    }), 
+                    __metadata('design:paramtypes', [authentication_service_1.AuthenticationService, router_1.Router])
                 ], SigninComponent);
                 return SigninComponent;
             }());
             exports_1("SigninComponent", SigninComponent);
         }
-    };
+    }
 });
 //# sourceMappingURL=signin.component.js.map

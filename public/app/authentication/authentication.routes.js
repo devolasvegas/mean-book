@@ -1,9 +1,10 @@
-System.register(["./authentication.component", "./signin/signin.component", "./signup/signup.component"], function (exports_1, context_1) {
+System.register(['./authentication.component', './signin/signin.component', './signup/signup.component'], function(exports_1, context_1) {
     "use strict";
-    var authentication_component_1, signin_component_1, signup_component_1, AuthenticationRoutes;
     var __moduleName = context_1 && context_1.id;
+    var authentication_component_1, signin_component_1, signup_component_1;
+    var AuthenticationRoutes;
     return {
-        setters: [
+        setters:[
             function (authentication_component_1_1) {
                 authentication_component_1 = authentication_component_1_1;
             },
@@ -12,9 +13,8 @@ System.register(["./authentication.component", "./signin/signin.component", "./s
             },
             function (signup_component_1_1) {
                 signup_component_1 = signup_component_1_1;
-            }
-        ],
-        execute: function () {
+            }],
+        execute: function() {
             exports_1("AuthenticationRoutes", AuthenticationRoutes = [{
                     path: 'authentication',
                     component: authentication_component_1.AuthenticationComponent,
@@ -24,6 +24,6 @@ System.register(["./authentication.component", "./signin/signin.component", "./s
                     ]
                 }]);
         }
-    };
+    }
 });
 //# sourceMappingURL=authentication.routes.js.map

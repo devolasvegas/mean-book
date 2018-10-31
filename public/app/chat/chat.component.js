@@ -1,5 +1,6 @@
-System.register(["@angular/core", "./chat.service"], function (exports_1, context_1) {
+System.register(['@angular/core', './chat.service'], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,19 +10,18 @@ System.register(["@angular/core", "./chat.service"], function (exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, chat_service_1, ChatComponent;
-    var __moduleName = context_1 && context_1.id;
+    var core_1, chat_service_1;
+    var ChatComponent;
     return {
-        setters: [
+        setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
             function (chat_service_1_1) {
                 chat_service_1 = chat_service_1_1;
-            }
-        ],
-        execute: function () {
-            ChatComponent = /** @class */ (function () {
+            }],
+        execute: function() {
+            ChatComponent = (function () {
                 function ChatComponent(_chatService) {
                     this._chatService = _chatService;
                 }
@@ -49,13 +49,13 @@ System.register(["@angular/core", "./chat.service"], function (exports_1, contex
                         providers: [
                             chat_service_1.ChatService
                         ]
-                    }),
-                    __metadata("design:paramtypes", [chat_service_1.ChatService])
+                    }), 
+                    __metadata('design:paramtypes', [chat_service_1.ChatService])
                 ], ChatComponent);
                 return ChatComponent;
             }());
             exports_1("ChatComponent", ChatComponent);
         }
-    };
+    }
 });
 //# sourceMappingURL=chat.component.js.map

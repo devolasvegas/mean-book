@@ -1,5 +1,6 @@
-System.register(["@angular/core", "../authentication/authentication.service"], function (exports_1, context_1) {
+System.register(['@angular/core', '../authentication/authentication.service'], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,19 +10,18 @@ System.register(["@angular/core", "../authentication/authentication.service"], f
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, authentication_service_1, HomeComponent;
-    var __moduleName = context_1 && context_1.id;
+    var core_1, authentication_service_1;
+    var HomeComponent;
     return {
-        setters: [
+        setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
-            }
-        ],
-        execute: function () {
-            HomeComponent = /** @class */ (function () {
+            }],
+        execute: function() {
+            HomeComponent = (function () {
                 function HomeComponent(_authenticationService) {
                     this._authenticationService = _authenticationService;
                     this.user = _authenticationService.user;
@@ -30,13 +30,13 @@ System.register(["@angular/core", "../authentication/authentication.service"], f
                     core_1.Component({
                         selector: 'home',
                         templateUrl: './app/home/home.template.html'
-                    }),
-                    __metadata("design:paramtypes", [authentication_service_1.AuthenticationService])
+                    }), 
+                    __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])
                 ], HomeComponent);
                 return HomeComponent;
             }());
             exports_1("HomeComponent", HomeComponent);
         }
-    };
+    }
 });
 //# sourceMappingURL=home.component.js.map
