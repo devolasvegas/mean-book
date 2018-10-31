@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/router', '@angular/http', './app.component', './app.routes', './home/home.module', './authentication/authentication.service', './authentication/authentication.module', './articles/articles.module'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/router', '@angular/http', './app.component', './app.routes', './home/home.module', './authentication/authentication.service', './authentication/authentication.module', './articles/articles.module', './chat/chat.module'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, router_1, http_1, app_component_1, app_routes_1, home_module_1, authentication_service_1, authentication_module_1, articles_module_1;
+    var core_1, platform_browser_1, forms_1, router_1, http_1, app_component_1, app_routes_1, home_module_1, authentication_service_1, authentication_module_1, articles_module_1, chat_module_1;
     var AppModule;
     return {
         setters:[
@@ -46,9 +46,11 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             },
             function (articles_module_1_1) {
                 articles_module_1 = articles_module_1_1;
+            },
+            function (chat_module_1_1) {
+                chat_module_1 = chat_module_1_1;
             }],
         execute: function() {
-            // import { ChatModule } from './chat/chat.module';
             AppModule = (function () {
                 function AppModule() {
                 }
@@ -61,7 +63,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                             authentication_module_1.AuthenticationModule,
                             home_module_1.HomeModule,
                             articles_module_1.ArticlesModule,
-                            // ChatModule,
+                            chat_module_1.ChatModule,
                             router_1.RouterModule.forRoot(app_routes_1.AppRoutes)
                         ],
                         declarations: [

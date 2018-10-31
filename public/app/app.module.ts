@@ -11,7 +11,7 @@ import { HomeModule }               from './home/home.module';
 import { AuthenticationService }    from './authentication/authentication.service';
 import { AuthenticationModule }     from './authentication/authentication.module';
 import { ArticlesModule }           from './articles/articles.module';
-// import { ChatModule } from './chat/chat.module';
+import { ChatModule } from './chat/chat.module';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { ArticlesModule }           from './articles/articles.module';
         AuthenticationModule,
         HomeModule,
         ArticlesModule,
-        // ChatModule,
+        ChatModule,
         RouterModule.forRoot(AppRoutes)
     ],
     declarations: [
