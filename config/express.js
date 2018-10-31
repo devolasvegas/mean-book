@@ -29,11 +29,6 @@ module.exports = function(db) {
     }));
     app.use(bodyParser.json());
     app.use(methodOverride());
-    // app.use(session({
-    //     saveUninitialized: true,
-    //     resave: true,
-    //     secret: config.sessionSecret
-    // }))
 
     const mongoStore = new MongoStore({
         mongooseConnection: db.connection
