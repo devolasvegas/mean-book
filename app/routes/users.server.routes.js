@@ -34,7 +34,8 @@ module.exports = function(app) {
         scope: [
             'https://www.googleapis.com/auth/userinfo.profile',
             'https://www.googleapis.com/auth/userinfo.email'
-        ]
+        ],
+        failureRedirect: '/signin'
     }));
 
     app.get('/api/oauth/google/callback', passport.authenticate('google', {
