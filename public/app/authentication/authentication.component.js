@@ -21,7 +21,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 AuthenticationComponent = __decorate([
                     core_1.Component({
                         selector: 'authentication',
-                        templateUrl: 'app/authentication/authentication.template.html'
+                        templateUrl: 'app/authentication/authentication.template.html',
                     })
                 ], AuthenticationComponent);
                 return AuthenticationComponent;
