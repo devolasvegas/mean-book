@@ -24,6 +24,6 @@ module.exports = function(server, io, mongoStore) {
     });
 
     io.on('connection', (socket) => {
-        configureChat('io, socket');
+        configureChat(io, socket);
     });
 };
