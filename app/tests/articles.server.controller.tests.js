@@ -31,7 +31,7 @@ describe('Articles Controller Unit Tests: ', () => {
         });
     });
 
-    describe('Testint the GET methods', () => {
+    describe('Testing the GET methods', () => {
         it('Should be able to get the list of articles', (done) => {
             request(app).get('/api/articles/')
                 .set('Accept', 'application/json')
