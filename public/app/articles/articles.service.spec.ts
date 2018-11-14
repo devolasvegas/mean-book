@@ -47,7 +47,7 @@ describe('Articles service tests', () => {
             expect(article).toBeDefined();
 
             expect(article.title).toEqual(mockArticle.title);
-            expect(article.content).toEqual(mockArticle.component);
+            expect(article.content).toEqual(mockArticle.content);
 
             done();
         }).toPromise();
