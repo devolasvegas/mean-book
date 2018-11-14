@@ -17,7 +17,7 @@ const mockArticle = {
 describe('Articles service tests', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [ HttpModule ],
+            imports: [HttpModule],
             providers: [
                 ArticlesService,
                 {
