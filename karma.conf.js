@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function(config) {
     config.set({
         basePath: '',
         frameworks: ['Jasmine'],
