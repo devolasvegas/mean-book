@@ -25,8 +25,10 @@
     ngPackageNames.forEach(function(pkgName) {
         packages['@angular/' + pkgName] = {
             main: '/bundles/' + pkgName + '.umd.js',
-            defaultExtension: 'js'
-        };
+            defaultExtension: 'js'};
+            
+        map['@angular/' + pkgName + '/testing'] = 'lib/@angular/' + pkgName + '/bundles/' + pkgName + '-testing.umd.js';
+    
     });
 
     System.config({
