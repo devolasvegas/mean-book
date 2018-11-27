@@ -1,7 +1,7 @@
 module.exports = function(config) {
     config.set({
         basePath: '',
-        frameworks: ['Jasmine'],
+        frameworks: ['jasmine'],
         files: [
             'node_modules/systemjs/dist/system.js',
 			'node_modules/systemjs/dist/system-polyfills.js',
