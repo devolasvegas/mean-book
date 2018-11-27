@@ -17,7 +17,7 @@ module.exports = function(config) {
             
             { pattern: 'public/systemjs.config.js', served: true, included: false, watched: false },
             { pattern: 'public/app/**/*.*', served: true, included: false, watched: false },
-            { pattern: 'node_modules/rxjs/**/*.js', served: true, indluded: false, watched: false },
+            { pattern: 'node_modules/rxjs/**/*.js', served: true, included: false, watched: false },
             { pattern: 'node_modules/@angular/**/*.js', served: true, included: false, watched: false },
 
             'karma.shim.js',
